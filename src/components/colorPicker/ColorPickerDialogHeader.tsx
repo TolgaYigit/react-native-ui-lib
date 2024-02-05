@@ -19,7 +19,7 @@ const Header = (props: HeaderProps) => {
   const {onDismiss, accessibilityLabels, testID, doneButtonColor, valid, onDonePressed} = props;
 
   return (
-    <View row spread bg-$backgroundDefault paddingH-20 style={styles.header}>
+    <View row spread bg-white paddingH-20 style={styles.header}>
       <Button
         link
         iconSource={Assets.icons.x}
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
   header: {
     height: 56,
     borderTopLeftRadius: BORDER_RADIUS,
-    borderTopRightRadius: BORDER_RADIUS
+    borderTopRightRadius: BORDER_RADIUS,
+    backgroundColor: Colors.$backgroundDefault
   }
 });

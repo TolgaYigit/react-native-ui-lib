@@ -94,10 +94,6 @@ export interface SliderProps extends AccessibilityProps {
    */
   thumbHitSlop?: ViewProps['hitSlop'];
   /**
-   * Whether the thumb will have a shadow
-   */
-  enableThumbShadow?: boolean;
-  /**
    * Thumb color
    */
   thumbTintColor?: string;
@@ -179,8 +175,7 @@ const Slider = React.memo((props: Props) => {
     disabled,
     useGap = true,
     accessible = true,
-    testID,
-    enableThumbShadow = true
+    testID
   } = props;
 
   const accessibilityProps = useMemo(() => {
@@ -277,7 +272,7 @@ const Slider = React.memo((props: Props) => {
           maximumValue,
           stepXValue.value);
         runOnJS(onRangeChangeThrottled)(value, maxValue);
-      } else if (prevOffset) { // don't invoke onChange when setting the slider
+      } else {
         runOnJS(onValueChangeThrottled)(value);
       }
     }
@@ -371,7 +366,6 @@ const Slider = React.memo((props: Props) => {
         hitSlop={thumbHitSlop}
         shouldBounceToStep={shouldBounceToStep}
         stepInterpolatedValue={stepInterpolatedValue}
-        enableShadow={enableThumbShadow}
       />
     );
   };
